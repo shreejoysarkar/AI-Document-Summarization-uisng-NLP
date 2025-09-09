@@ -39,7 +39,7 @@ It contains the source code, configuration, research notebooks, and a web-based 
 
 Below is a screenshot of the application's user interface, showcasing how users can interact with the document summarization tool:
 
-![UI Screenshot](static/images/ui_screenshot.png)
+![UI Screenshot](static/images/ui.png)
 ---
 
 ## 🚀 Getting Started
