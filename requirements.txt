@@ -6,6 +6,7 @@ sacrebleu
 rouge_score
 py7zr
 pandas
+python-multipart
 nltk
 tqdm
 PyYAML
