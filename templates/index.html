@@ -37,11 +37,19 @@
 
         <!-- Prediction Form -->
         <div class="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto">
-            <form id="predict-form" action="/predict" method="post" class="space-y-4">
+            <form id="summarizeForm" action="/predict" method="post" enctype="multipart/form-data" class="space-y-4">
                 <label for="text" class="block text-gray-700 font-medium">Enter Text:</label>
-                <textarea id="text" name="text" rows="5" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">{{ input_text if input_text else "" }}</textarea>
+                <textarea id="textInput" name="text" rows="6" cols="60" placeholder="Paste text here..." required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">{{ input_text if input_text else "" }}</textarea>
                 
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">✨ Summarize</button>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">✨ Summarize Text</button>
+            </form>
+        </div>
+
+        <!-- File Upload Form -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto mt-6">
+            <form id="fileForm" action="/predict_file" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".pdf,.docx" required>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 mt-4">Summarize File</button>
             </form>
         </div>
 
@@ -58,17 +66,48 @@
             <p class="text-gray-700">{{ result }}</p>
         </div>
         {% endif %}
+
+        <!-- Refresh Button -->
+        <div class="flex justify-center mt-6">
+            <button onclick="window.location.href='/'" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">🔄 Refresh</button>
+        </div>
     </div>
 
     <script>
-        // Show spinner when form is submitted
-        document.getElementById("predict-form").addEventListener("submit", function() {
+        // Show spinner when text form is submitted
+        document.getElementById("summarizeForm").addEventListener("submit", function() {
+            document.getElementById("loading").classList.remove("hidden");
+        });
+
+        // Show spinner when file form is submitted
+        document.getElementById("fileForm").addEventListener("submit", function() {
             document.getElementById("loading").classList.remove("hidden");
         });
 
         // Show spinner when train button is clicked
         document.getElementById("train-btn").addEventListener("click", function() {
             document.getElementById("loading").classList.remove("hidden");
+        });
+
+        // Toggle between text input and file upload
+        function toggleInput(type) {
+            document.getElementById('textInputDiv').style.display = (type === 'text') ? 'block' : 'none';
+            document.getElementById('fileInputDiv').style.display = (type === 'file') ? 'block' : 'none';
+            document.getElementsByName('text')[0].value = '';
+            document.getElementsByName('file')[0].value = '';
+        }
+
+        // Initialize form
+        document.addEventListener("DOMContentLoaded", function() {
+            toggleInput('text');
+        });
+
+        // Only one input works at a time
+        document.getElementById('textInput').addEventListener('input', function() {
+            document.getElementById('fileInput').disabled = this.value.length > 0;
+        });
+        document.getElementById('fileInput').addEventListener('change', function() {
+            document.getElementById('textInput').disabled = this.files.length > 0;
         });
     </script>
 

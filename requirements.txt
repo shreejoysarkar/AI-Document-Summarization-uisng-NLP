@@ -6,6 +6,8 @@ sacrebleu
 rouge_score
 py7zr
 pandas
+PyPDF2
+python-docx
 python-multipart
 nltk
 tqdm
