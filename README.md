@@ -6,6 +6,7 @@ Welcome to the **AI Document Summarization using NLP** repository!
 This project leverages Natural Language Processing (NLP) techniques for automated document summarization, focusing on the essential steps of a robust data science pipeline.
 
 ---
+## Deployed version of the application : https://ai-document-summarization-uisng-nlp-01.onrender.com
 
 ## 📁 Folder Structure
 
