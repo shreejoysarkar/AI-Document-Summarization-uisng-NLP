@@ -6,7 +6,6 @@ Welcome to the **AI Document Summarization using NLP** repository!
 This project leverages Natural Language Processing (NLP) techniques for automated document summarization, focusing on the essential steps of a robust data science pipeline.
 
 ---
-## Deployed version of the application : https://ai-document-summarization-uisng-nlp-01.onrender.com
 
 ## 📁 Folder Structure
 
@@ -15,12 +14,11 @@ This project leverages Natural Language Processing (NLP) techniques for automate
 ├── config/                 # Configuration files for model, data, and experiments
 ├── research/               # Jupyter Notebooks and research documentation
 ├── src/                    # Source code for NLP, preprocessing, and summarization
-├── static/                 # Static assets (images, CSS, etc.) for web app
-├── templates/              # HTML templates for UI
+├── static/                 # Static assets images for web app
 ├── .gitignore              # Files/folders to be ignored by git
 ├── LICENSE                 # License information
 ├── README.md               # Project overview and documentation
-├── app.py                  # Main application (Flask or Streamlit)
+├── app.py                  # Main application Streamlit
 ├── main.py                 # Entry point for running core logic
 ├── params.yaml             # Experiment and model parameters
 ├── requirements.txt        # Python dependencies
