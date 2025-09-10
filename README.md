@@ -7,6 +7,9 @@ This project leverages Natural Language Processing (NLP) techniques for automate
 
 ---
 
+## Deployed version : https://nlpdocumentsummarize.streamlit.app
+
+
 ## 📁 Folder Structure
 
 ```
