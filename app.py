@@ -3,10 +3,7 @@ import time
 from src.DocSummarizer.pipeline.prediction import PredictionPipeline
 import PyPDF2
 import docx
-from PIL import Image
 
-# Inject custom CSS for background image
-# ...existing code...
 
 st.markdown(
     """
