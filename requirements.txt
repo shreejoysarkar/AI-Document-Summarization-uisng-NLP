@@ -14,13 +14,13 @@ tqdm
 PyYAML
 matplotlib
 torch
+streamlit
 notebook
+times
 boto3
 mypy-boto3-s3
 python-box
 ensure
 evaluate
-fastapi
-uvicorn
-jinja2
+PIL
 -e .
